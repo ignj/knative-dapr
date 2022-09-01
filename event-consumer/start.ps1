@@ -1,0 +1,1 @@
+dapr run --app-id event-subscriber --app-protocol http --app-port 8080 --dapr-http-port 3501 --log-level debug --components-path ../config -- go run ./cmd/api

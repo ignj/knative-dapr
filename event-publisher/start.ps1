@@ -1,0 +1,1 @@
+dapr run --app-id event-publisher --app-protocol http --app-port 8081 --dapr-http-port 3500 --log-level debug --components-path ../config -- dotnet run
