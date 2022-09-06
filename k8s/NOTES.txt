@@ -1,0 +1,6 @@
+Requires Redis
+helm install redis bitnami/redis
+
+Requires Postgres
+helm install postgres bitnami/postgresql --set auth.postgresPassword=postgres --set auth.enablePostgresUser=true --set auth.database=events
+Note on this: Remember to delete the PVC after uninstall!

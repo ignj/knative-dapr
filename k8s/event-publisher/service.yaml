@@ -1,0 +1,23 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-publisher
+spec:
+  template:
+    metadata:
+      # This is the name of our new "Revision," it must follow the convention {service-name}-{revision-name}
+      name: event-publisher-00001
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: event-publisher
+        dapr.io/app-port: "80"
+        dapr.io/config: "config"
+        dapr.io/log-level: warn
+        dapr.io/metrics-port: "19090"
+    spec:
+      containers:
+        - image: dev.local/event-publisher
+          name: event-publisher
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
